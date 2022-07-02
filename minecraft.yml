@@ -1,0 +1,86 @@
+version: "3"
+services:
+  #datacraft:
+  #  image: itzg/minecraft-server:java16
+  #  ports:
+  #    - 25561:25565
+  #  environment:
+  #    TYPE: "PAPER"
+  #    ICON: "http://clipart-library.com/new_gallery/57-579791_minecraft-steve-alabama.png"
+  #    MOTD: "Data Craft. Data Craft. Craft Data. Data Craft."
+  #    MODE: "survival"
+  #    EULA: "TRUE"
+  #    ENABLE_RCON: "true"
+  #    RCON_PASSWORD: ${RCON_PASSWORD}
+  #    RCON_PORT: 28016
+  #  volumes:
+  #  - ${HOME}/data/datacraft:/data
+  #  restart: always
+  # datacraft2:
+  #   image: itzg/minecraft-server:java16
+  #   ports:
+  #     - 25563:25565
+  #   environment:
+  #     MEMORY: "4G"
+  #     TYPE: "VANILLA"
+  #     ICON: "http://clipart-library.com/new_gallery/57-579791_minecraft-steve-alabama.png"
+  #     MOTD: "Data Craft Season 2: Data Craftier"
+  #     MODE: "survival"
+  #     EULA: "TRUE"
+  #     #ENABLE_RCON: "true"
+  #     #RCON_PASSWORD: ${RCON_PASSWORD}
+  #     #RCON_PORT: 28016
+  #   volumes:
+  #   - ${HOME}/data/datacraft2:/data
+  #   restart: always
+    
+  cousinland:
+    image: itzg/minecraft-server:java16
+    ports:
+      - 25562:25565
+    environment:
+      TYPE: "PAPER"
+      ICON: "https://image.freepik.com/free-vector/pixel-art-planet-earth_38133-5.jpg"
+      MOTD: "A shared world for Haveman cousins"
+      MODE: "survival"
+      EULA: "TRUE"
+     # ENABLE_RCON: "true"
+     # RCON_PASSWORD: ${RCON_PASSWORD}
+     # RCON_PORT: 28016
+    volumes:
+      - ${HOME}/data/cousinland:/data
+    restart: always
+  # sambashare:
+  #   image: dperson/samba
+  #   ports:
+  #     - "137:137/udp"
+  #     - "138:138/udp"
+  #     - "139:139/tcp"
+  #     - "445:445/tcp"
+  #   stdin_open: true
+  #   tty: true
+  #   volumes:
+  #     - ${HOME}/data/:/mount
+  #   command: '-s "Minecraft Data;/mount;yes;no;no;${SMB_USER}" -u "${SMB_USER};${SMB_PASS}" -p'
+  # backup:
+  #   image: itzg/mc-backup
+  #   # This needs to be set because backups use hostnames
+  #   hostname: minecraftbackup
+  #   command: /bin/bash
+  #   restart: always
+  #   environment:
+  #     BACKUP_METHOD: restic
+  #     BACKUP_INTERVAL: "3h"
+  #     INITIAL_DELAY: 500
+  #     AWS_ACCESS_KEY_ID: ${AWS_ACCESS_KEY_ID}
+  #     AWS_SECRET_ACCESS_KEY: ${AWS_SECRET_ACCESS_KEY}
+  #     AWS_DEFAULT_REGION: us-west-2
+  #     RESTIC_REPOSITORY: ${RESTIC_REPOSITORY}
+  #     RESTIC_FORGET_ARGS: ${RESTIC_FORGET_ARGS}
+  #     RESTIC_PASSWORD: ${RESTIC_PASSWORD}
+  #     RCON_PASSWORD: ${RCON_PASSWORD}
+  #     RCON_PORT: 28016
+  #     RCON_HOST: datacraft
+  #   volumes:
+  #     - ${HOME}/data:/data:ro
+  #     - ${HOME}/recover:/recover
