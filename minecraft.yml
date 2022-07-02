@@ -20,7 +20,7 @@ services:
      # RCON_PASSWORD: ${RCON_PASSWORD}
      # RCON_PORT: 28016
     volumes:
-      - ${HOME}/data/cousinworld:/data
+      - /media/volumes/minecraft/cousinworld:/data
     restart: always
 
   #datacraft:
