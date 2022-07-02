@@ -1,22 +1,28 @@
 version: "3"
 services:
 
-  cousinland:
+   
+  cousinworld:
     image: itzg/minecraft-server:java16
     ports:
-      - 25562:25565
+      - 25563:25565
     environment:
       TYPE: "PAPER"
+      VERSION: "1.16.5"
       ICON: "https://image.freepik.com/free-vector/pixel-art-planet-earth_38133-5.jpg"
-      MOTD: "A shared world for Haveman cousins"
+      MOTD: "A shared world for Haveman cousins (compatible v1.16.5)"
       MODE: "survival"
       EULA: "TRUE"
+      SPIGET_RESOURCES: "34315"
+      MODS: "https://github.com/EssentialsX/Essentials/releases/download/2.19.0/EssentialsX-2.19.0.jar"
      # ENABLE_RCON: "true"
      # RCON_PASSWORD: ${RCON_PASSWORD}
      # RCON_PORT: 28016
     volumes:
-      - ${HOME}/data/cousinland:/data
+      - ${HOME}/data/cousinworld:/data
     restart: always
+
+    
   #datacraft:
   #  image: itzg/minecraft-server:java16
   #  ports:
