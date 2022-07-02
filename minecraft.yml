@@ -1,12 +1,13 @@
 version: "3"
-services:
 
-   
+services:
   cousinworld:
     image: itzg/minecraft-server:java16
     ports:
       - 25563:25565
     environment:
+      PUID: "1000"
+      PGID: "1006"
       TYPE: "PAPER"
       VERSION: "1.16.5"
       ICON: "https://image.freepik.com/free-vector/pixel-art-planet-earth_38133-5.jpg"
@@ -22,7 +23,6 @@ services:
       - ${HOME}/data/cousinworld:/data
     restart: always
 
-    
   #datacraft:
   #  image: itzg/minecraft-server:java16
   #  ports:
