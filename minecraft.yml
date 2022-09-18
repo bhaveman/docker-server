@@ -23,6 +23,50 @@ services:
       - /media/volumes/minecraft/cousinworld:/data
     restart: always
 
+  originsworld:
+    image: itzg/minecraft-server:java16
+    ports:
+      - 25564:25565
+    environment:
+      PUID: "1000"
+      PGID: "1006"
+      TYPE: "FABRIC"
+      VERSION: "1.16.5"
+      ICON: "https://image.freepik.com/free-vector/pixel-art-planet-earth_38133-5.jpg"
+      MOTD: "An Origins mod survival world (compatible v1.16.5)"
+      MODE: "survival"
+      EULA: "TRUE"
+      SPIGET_RESOURCES: "34315"
+      MODS: "https://mediafiles.forgecdn.net/files/3319/81/Origins-1.16.5-0.7.3.jar"
+     # ENABLE_RCON: "true"
+     # RCON_PASSWORD: ${RCON_PASSWORD}
+     # RCON_PORT: 28016
+    volumes:
+      - /media/volumes/minecraft/originsworld:/data
+    restart: always
+
+  adventureworld:
+    image: itzg/minecraft-server:java16
+    ports:
+      - 25566:25565
+    environment:
+      PUID: "1000"
+      PGID: "1006"
+      TYPE: "FABRIC"
+      VERSION: "1.16.5"
+      ICON: "https://image.freepik.com/free-vector/pixel-art-planet-earth_38133-5.jpg"
+      MOTD: "Adventure Pack mod world"
+      MODE: "survival"
+      EULA: "TRUE"
+      SPIGET_RESOURCES: "34315"
+      MODS: "https://github.com/EssentialsX/Essentials/releases/download/2.19.0/EssentialsX-2.19.0.jar"
+     # ENABLE_RCON: "true"
+     # RCON_PASSWORD: ${RCON_PASSWORD}
+     # RCON_PORT: 28016
+    volumes:
+      - /media/volumes/minecraft/survuvalworld:/data
+    restart: always
+
   #datacraft:
   #  image: itzg/minecraft-server:java16
   #  ports:
