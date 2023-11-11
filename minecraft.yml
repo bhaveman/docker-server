@@ -21,7 +21,7 @@ services:
      # RCON_PORT: 28016
     volumes:
       - /media/volumes/minecraft/cousinworld:/data
-    restart: always
+    restart: unless-stopped
 
   originsworld:
     image: itzg/minecraft-server:java16
@@ -43,29 +43,39 @@ services:
      # RCON_PORT: 28016
     volumes:
       - /media/volumes/minecraft/originsworld:/data
-    restart: always
+      - /media/volumes/minecraft/originsmods:/mods
+    restart: unless-stopped
 
-  adventureworld:
+
+  
+  micahsmod:
     image: itzg/minecraft-server:java16
     ports:
-      - 25566:25565
+      - 25568:25565
     environment:
       PUID: "1000"
       PGID: "1006"
-      TYPE: "FABRIC"
-      VERSION: "1.16.5"
+      TYPE: "CURSEFORGE"
+      VERSION: "1.19.2"
       ICON: "https://image.freepik.com/free-vector/pixel-art-planet-earth_38133-5.jpg"
-      MOTD: "Adventure Pack mod world"
+      MOTD: "Micah's modpack (compatible v1.19.2)"
       MODE: "survival"
       EULA: "TRUE"
-      SPIGET_RESOURCES: "34315"
-      MODS: "https://github.com/EssentialsX/Essentials/releases/download/2.19.0/EssentialsX-2.19.0.jar"
+     # SPIGET_RESOURCES: "34315"
+      CF_SERVER_MOD: "/modpack/micahs_modpack.zip"
+      USE_MODPACK_START_SCRIPT: "false"
+      FTB_LEGACYJAVAFIXER: "true"
      # ENABLE_RCON: "true"
      # RCON_PASSWORD: ${RCON_PASSWORD}
      # RCON_PORT: 28016
     volumes:
-      - /media/volumes/minecraft/survuvalworld:/data
-    restart: always
+      - /media/volumes/minecraft/micahsmod:/data
+      #- /media/volumes/minecraft/micahsmodpack:/mods
+      #- /media/volumes/minecraft/micahsmodconfig:/config
+      - /media/volumes/minecraft/modpack:/modpack
+    restart: unless-stopped
+
+
 
   #datacraft:
   #  image: itzg/minecraft-server:java16
