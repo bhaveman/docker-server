@@ -232,14 +232,14 @@ services:
   # - CMA_RADARR_ENCODED_API_KEY=${CMA_RADARR_ENCODED_API_KEY:-""}
   # - CMA_RADARR_ENABLE_NOTIFICATION=${CMA_RADARR_ENABLE_NOTIFICATION:-""}
 
-volumes:
-  torrent-downloads:
-  radarr-config:
-  sonarr-config:
-  prowlarr-config:
-  jellyfin-config:
-  qbittorrent-config:
-  # cleanmyarr-config:
+# volumes:
+#   torrent-downloads:
+#   radarr-config:
+#   sonarr-config:
+#   prowlarr-config:
+#   jellyfin-config:
+#   qbittorrent-config:
+#   # cleanmyarr-config:
 
 networks:
   media_stack_network:
